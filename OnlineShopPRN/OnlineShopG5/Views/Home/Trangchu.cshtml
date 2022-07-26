@@ -1,0 +1,624 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using OnlineShopG5.Models;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rin-Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="~/css/base.css" />
+    <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="stylesheet" href="~/css/grid.css" />
+    <link href="/font/fontawesome-free-5.15.4-web/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="main">
+        <header class="header">
+            <div class="grid">
+                <nav class="header__navbar">
+                    <ul class="header__navbar-list">
+
+                        @if (ViewBag.Role == "1")
+                        {
+                            <li class="header__navbar-item header__navbar-item--separate"><a style="text-decoration:none; color:white" href="/Home/DanhSachDonHang">Quản lý đơn hàng</a></li>
+                            <li class="header__navbar-item header__navbar-item--separate"><a style="text-decoration:none; color:white" href="/Home/Manager">Quản lý sản phẩm</a></li>
+
+                        }
+                        else
+                        {
+                            <li class="header__navbar-item header__navbar-item--separate">Kênh Người Bán</li>
+                            <li class="header__navbar-item header__navbar-item--separate">Trở thành Người bán Rin-Shop</li>
+                        }
+
+                        <li class="header__navbar-item header__navbar-item--qr header__navbar-item--separate">
+                            Tải ứng dụng
+                            <div class="header_qr">
+                                <img src="./assets/img/QR_Code.png" alt="QR code" class="qr-img">
+                                <div class="qr-apps">
+                                    <a href="" class="qr_link">
+                                        <img src="./assets/img/gg.png" alt="App Store" class="qr-download">
+                                    </a>
+                                    <a href="" class="qr_link">
+                                        <img src="./assets/img/gg2.png" alt="Google Play" class="qr-download">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="header__navbar-item">
+                            <span class="header__connect">Đăng nhập</span>
+                            <a href="" class="header__navbar-icon">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="" class="header__navbar-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item-hasnotify">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon far fa-bell"></i>
+                                Thông báo
+                            </a>
+                            <div class="header__notify">
+                                <header class="header__notify-header">
+                                    <h3>Thông Báo Mới Nhận</h3>
+                                </header>
+                                <ul class="header__notify-list">
+                                    <li class="header__notify-item header__notify-item--viewed">
+                                        <a class="header__notify-link" href="">
+                                            <img src="https://cdn.vuahanghieu.com/unsafe/0x0/left/top/smart/filters:quality(90)/https://admin.vuahanghieu.com/upload/news/content/2020/07/bo-san-pham-ngan-ngua-lao-hoa-chong-nhan-da-ohui-prime-advancer-8pcs-5d2d8fde3a04f-16072019155038-jpg-1594710946-14072020141546.jpg" alt="" class="header__notify-img">
+                                            <div class="header__notify-info">
+                                                <span class="header__notify-name">Xác thực chính hãng nguồn gốc các sản phẩm Ohui</span>
+                                                <span class="header__notify-desc">Hidden Tag là giải pháp xác thực hàng chính hãng bằng công nghệ tiên tiến nhất hiện nay</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="header__notify-item">
+                                        <a class="header__notify-link" href="">
+                                            <img src="https://cdn.vuahanghieu.com/unsafe/0x0/left/top/smart/filters:quality(90)/https://admin.vuahanghieu.com/upload/news/content/2020/07/bo-san-pham-ngan-ngua-lao-hoa-chong-nhan-da-ohui-prime-advancer-8pcs-5d2d8fde3a04f-16072019155038-jpg-1594710946-14072020141546.jpg" alt="" class="header__notify-img">
+                                            <div class="header__notify-info">
+                                                <span class="header__notify-name">Sale sốc bộ dưỡng Ohui The First Tái tạo trẻ hóa da SALE OFF 70%</span>
+                                                <span class="header__notify-desc">Giá chỉ còn 375.000(giá gốc: 1.250.000 vnđ)</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="header__notify-item header__notify-item--viewed">
+                                        <a class="header__notify-link" href="">
+                                            <img src="https://cdn.vuahanghieu.com/unsafe/0x0/left/top/smart/filters:quality(90)/https://admin.vuahanghieu.com/upload/news/content/2020/07/bo-san-pham-ngan-ngua-lao-hoa-chong-nhan-da-ohui-prime-advancer-8pcs-5d2d8fde3a04f-16072019155038-jpg-1594710946-14072020141546.jpg" alt="" class="header__notify-img">
+                                            <div class="header__notify-info">
+                                                <span class="header__notify-name">Ohui chính thức ra mắt dòng son lì mới THE FIRST GENITURE LIPSTICK</span>
+                                                <span class="header__notify-desc">Một làn môi căng mềm, quyến rũ với sắc màu nổi bật luôn là điều mà các quý cô ao ước</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <footer class="header__notify-footer">
+                                    <a href="" class="header__notify-footer-btn">Xem tất cả</a>
+                                </footer>
+                            </div>
+                        </li>
+                        <li class="header__navbar-item">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon far fa-question-circle"></i>
+                                Trợ giúp
+                            </a>
+                        </li>
+
+                        @if (ViewBag.id == null)
+                        {
+                            <li class="header__navbar-item header__navbar-item--bold header__navbar-item--separate"><a class="register_header" href="/Home/RegisterForm"> Đăng Ký</a></li>
+                            <li class="header__navbar-item header__navbar-item--bold"><a class="register_header" href="/Home/FormLogin"> Đăng Nhập</a></li>
+
+                        }
+                        else
+                        {
+                            <li class="header__navbar-item header__navbar-item--bold header__navbar-item--separate"><a class="register_header" href="/Home/UserProfile"> Username</a></li>
+                            <li class="header__navbar-item header__navbar-item--bold"><a class="register_header" href="/Home/Logout"> Đăng xuất</a></li>
+
+                        }
+
+
+                        <!-- <li class="header__navbar-item header__navbar-user">
+                            <img src="https://scontent.fhan4-3.fna.fbcdn.net/v/t1.6435-9/130673242_1072626889921945_6958961256365140847_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=aAWpZRKn5pQAX-bdA29&_nc_ht=scontent.fhan4-3.fna&oh=00_AT__OLMUGyDY94tpkT7hVmO5WgIBKHCPw4TPP5f4cse2PQ&oe=620C3727" alt="" class="header__navbar-user-img">
+                            <span class="header__navbar-user-name">Nguyễn Văn Rin</span>
+
+                            <ul class="header__navbar-user-menu">
+                                <li class="header__navbar-user-item">
+                                    <a href="">Tài khoản của tôi</a>
+                                </li>
+                                <li class="header__navbar-user-item">
+                                    <a href="">Đơn mua</a>
+                                </li>
+                                <li class="header__navbar-user-item">
+                                    <a href="">Đăng xuất</a>
+                                </li>
+
+                            </ul>
+                        </li> -->
+                    </ul>
+                </nav>
+
+                <!-- header with search -->
+                <div class="header-with-search">
+                    <div class="header__logo">
+                        <a href="/Home/Trangchu">
+                            <img src="/img/logo.png" alt="" class="header__logo-img">
+                        </a>
+                    </div>
+
+                    <div class="header__search">
+                        @using (Html.BeginForm())
+                        {
+                            <div class="header__search-input-wrap">
+                                @Html.TextBox("Search", "", new { @class = "header__search-input" })
+                                @*<input type="text" class="header__search-input" value="" name="search">*@
+                                <div class="header__search-history">
+                                    <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                                    <ul class="header__search-history-list">
+                                        <li class="header__search-history-item">
+                                            <a href="">Kem dưỡng da</a>
+                                        </li>
+                                        <li class="header__search-history-item">
+                                            <a href="">Kem trị mụn</a>
+                                        </li>
+                                        <li class="header__search-history-item">
+                                            <a href="">Áo hoodie</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <button class="header__search-btn" type="submit">
+                                <i class="header__search-btn-icon fas fa-search"></i>
+                            </button>
+                        }
+
+                    </div>
+
+                    <div class="header__cart">
+                        <div class="header__cart-wrap">
+                            <i class="header__cart-icon fas fa-shopping-cart"></i>
+                            <span class="header__cart-notice">@ViewBag.quantitySp</span>
+                            <!-- No cart: header__cart-list--no-cart -->
+                            @if (ViewBag.quantitySp == "0")
+                            {
+                                <div class="header__cart-list header__cart-list--no-cart">
+                                    <img src="/img/no_cart.png" alt="" class="header__cart-no-cart-img">
+                                    <span class="header__cart-list-no-cart-msg">
+                                        Chưa có sản phẩm
+                                    </span>
+                                    <a href="/Home/ViewCart" class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a>
+
+
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="header__cart-list ">
+                                    <img src="/img/no_cart.png" alt="" class="header__cart-no-cart-img">
+                                    <span class="header__cart-list-no-cart-msg">
+                                        Chưa có sản phẩm
+                                    </span>
+
+                                    <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                                    <ul class="header__cart-list-item">
+                                        @foreach (KeyValuePair<int, int> item in ViewBag.cart)
+                                        {
+                                            Product sp = new Product();
+                                            Category cate = new Category();
+                                            using (var context = new ShopPRNContext())
+                                            {
+                                                sp = context.Products.Where(x => x.ProductId == item.Key).SingleOrDefault();
+                                                cate = context.Categories.Where(x => x.CategoryId == sp.CategoryId).SingleOrDefault();
+                                            }
+                                            <li class="header__cart-item">
+                                                <img src="@sp.Image" alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">@sp.ProductName</h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">@sp.Price đ</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-qnt">@item.Value</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-desc">
+                                                           Loại: @cate.CategoryName
+                                                        </span>
+                                                        <span class="header__cart-item-remove">Xóa</span>
+
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                        }
+
+
+                                    </ul>
+                                    <a href="/Home/ViewCart" class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a>
+
+
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="app__container">
+            <div class="grid">
+                <div class="grid__row app__content">
+                    <div class="grid__column-2">
+                        <nav class="category">
+                            <h3 class="category__heading">
+                                <i class="category__heading-icon fas fa-list-ul"></i>
+                                Danh mục
+                            </h3>
+                            <ul class="category-list">
+                                @foreach (Category cate in ViewBag.listC)
+                                {
+                                    <li class="category-item category-item--link">
+                                        <a href="/Home/CategoryFilter?cateid=@cate.CategoryId" class="category-item__link">@cate.CategoryName</a>
+                                    </li>
+                                }
+
+                                <li class="category-item category-item--active">
+                                    <a href="#" class="category-item__link">Sản Phẩm</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Trang trí nhà cửa</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Ưu đãi giảm giá</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Giảm giá</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Hàng mới về</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="grid__column-10">
+                        <div class="home-filter">
+                            <span class="home-filter__label">Sắp xếp theo</span>
+                            <button class="home-filter__btn btn btn--primary">Phổ biến</button>
+                            <button class="home-filter__btn btn" href="/Home/NewProduct">Mới nhất</button>
+                            <button class="home-filter__btn btn">Bán chạy</button>
+
+                            <div class="seclect-input">
+                                <span class="seclect-input__label">Giá</span>
+                                <i class="seclect-input__icon fas fa-angle-down"></i>
+                                <ul class="seclect-input__list">
+                                    <li class="seclect-input__item">
+                                        <a href="" class="seclect-input__link">Giá: Thấp đến cao</a>
+                                    </li>
+                                    <li class="seclect-input__item">
+                                        <a href="" class="seclect-input__link">Giá: Cao đến thấp</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="home-filter__page">
+                                <span class="home-filter__page-num">
+                                    <span class="home-filter__page-current">1</span>/9
+                                </span>
+                                <div class="home-filter__page-control">
+                                    <a href="" class="home-filter__page-btn home-filter__page-btn--disable">
+                                        <i class="home-filter__page-icon fas fa-angle-left"></i>
+                                    </a>
+                                    <a href="" class="home-filter__page-btn">
+                                        <i class="home-filter__page-icon fas fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="home-product">
+                            <div class="grid__row ">
+                                @foreach (Product item in ViewBag.listP)
+                                {
+                                    <div class="grid__column-2-4">
+                                        <a class="home-product-item" href="#">
+                                            <div class="home-product-item__img" style="background-image: url(@item.Image);"></div>
+                                            <h4 class="home-product-item__name">@item.ProductName</h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">@item.Price</span>
+                                                <span class="home-product-item__price-current">@item.Price</span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__action--liked">
+                                                    <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                                    <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                                </span>
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">88 đã bán</span>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whoo</span>
+                                                @if (item.Quantity > 0)
+                                                {
+                                                    <a href="/Home/AddSp?id=@item.ProductId" class="home-product-item__origin-name btn btn--primary" style="color: white; font-size: 15px">Add to cart</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="#" class="home-product-item__origin-name btn btn--primary" style="color: white; font-size: 15px; background-color:black">Hết hàng</a>
+                                                }
+                                            </div>
+
+                                        </a>
+                                    </div>
+                                }
+
+
+
+                            </div>
+                        </div>
+
+                        <ul class="pagination home-product__pagination">
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item__link">
+                                    <i class="pagination-item__icon fas fa-angle-left"></i>
+                                </a>
+                            </li>
+                            
+                            @for (int x = 0; x < ViewBag.page; x++)
+                            {
+                                int pag = int.Parse(ViewBag.paging.ToString());
+                                if (pag == x)
+                                {
+                                    <li class="pagination-item pagination-item--active">
+                                        <a href="/Home/Trangchu?paging=@x" class="pagination-item__link">@(x+1)</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="pagination-item">
+                                        <a href="/Home/Trangchu?paging=@x" class="pagination-item__link">@(x+1)</a>
+                                    </li>
+                                }
+
+
+                            }
+
+
+
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item__link">
+                                    <i class="pagination-item__icon fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*<footer class="footer">
+                    <div class="grid">
+                        <div class="grid__row">
+                            <div class="grid__column-2-4">
+                                <h3 class="footer__heading">Chăm sóc khách hàng</h3>
+                                <ul class="footer-list">
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">Trung tâm trợ giúp</a>
+                                    </li>
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">Rin-Shop Mall</a>
+                                    </li>
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">Hướng dẫn mua hàng</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid__column-2-4">
+                                <h3 class="footer__heading">Giới thiệu</h3>
+                                <ul class="footer-list">
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">Giới thiệu</a>
+                                    </li>
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">Tuyển dụng</a>
+                                    </li>
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">Điều khoản</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid__column-2-4">
+                                <h3 class="footer__heading">Danh mục</h3>
+                                <ul class="footer-list">
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">Sản phẩm</a>
+                                    </li>
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">Ưu đãi giảm giá</a>
+                                    </li>
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">Giảm giá</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid__column-2-4">
+                                <h3 class="footer__heading">Theo dõi</h3>
+                                <ul class="footer-list">
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">
+                                            <i class="footer-item__icon fab fa-facebook"></i>
+                                            Facebook
+                                        </a>
+                                    </li>
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">
+                                            <i class="footer-item__icon fab fa-instagram-square"></i>
+                                            Instagram
+                                        </a>
+                                    </li>
+                                    <li class="footer-item">
+                                        <a href="" class="footer-item__link">
+                                            <i class="footer-item__icon fab fa-linkedin"></i>
+                                            Linked
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid__column-2-4">
+                                <h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
+                                <div class="footer__download">
+                                    <img src="/assets/img/QR_Code.png" alt="Download QR" class="footer__download-qr">
+                                    <div class="footer__download-apps">
+                                        <a href="" class="footer__download-app-link">
+
+                                            <img src="/assets/img/gg.png" alt="App Store" class="footer__download-app-img">
+                                        </a>
+                                        <a href="" class="footer__download-app-link">
+
+
+                                            <img src="/assets/img/gg2.png" alt="Google Play" class="footer__download-app-img">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>*@
+
+        <!-- modal -->
+        <!-- <div class="modal" >
+            <div class="modal__overlay"></div>
+            <div class="modal__body"> -->
+        <!-- Register form -->
+        <!-- <div class="auth-form auth-form--off">
+            <div class="auth-form__container">
+                <div class="auth-form__header">
+                    <h3 class="auth-form__heading">Đăng ký</h3>
+                    <span class="auth-form__switch-btn">Đăng Nhập</span>
+
+                </div>
+                <div class="auth-form__form">
+                    <div class="auth-form__group">
+                        <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                    </div>
+                    <div class="auth-form__group">
+                        <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                    </div>
+                    <div class="auth-form__group">
+                        <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+                    </div>
+                </div>
+                <div class="auth-form__aside">
+                    <p class="auth-form__policy-text">
+                        Bằng việc đăng kí, bạn đã đồng ý với Rin-Shop về
+                        <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                        <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
+
+                    </p>
+                </div>
+                <div class="auth-form__controls">
+                    <button class="btn auth-form__controls--back">TRỞ LẠI</button>
+                    <button class="btn btn--primary">ĐĂNG KÝ</button>
+                </div>
+            </div>
+
+            <div class="auth-form__socials">
+                <a href="" class="auth-form__socials-icon--facebook btn btn--size-s btn--with-icon">
+                    <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                    <span class="auth-form__socials-title">
+                        Đăng nhập với Facebook
+                    </span>
+                </a>
+                <a href="" class="auth-form__socials-icon--google btn btn--size-s btn--with-icon">
+                    <i class="auth-form__socials-icon fab fa-google"></i>
+                    <span class="auth-form__socials-title">
+                        Kết nối với Google
+                    </span>
+
+                </a>
+            </div>
+        </div> -->
+        <!-- Login form -->
+        <!-- <div class="auth-form">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                        <span class="auth-form__switch-btn">Đăng ký</span>
+
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                    </div>
+                    <div class="auth-form__aside">
+                        <div class="auth-form__help">
+                            <a href="" class="auth-form__help-link auth-form__help-forgot">
+                                Quên mật khẩu
+                            </a>
+                            <span class="auth-form__help-separate"></span>
+                            <a href="" class="auth-form__help-link">
+                                Cần trợ giúp?
+                            </a>
+                        </div>
+                    </div>
+                    <div class="auth-form__controls">
+                        <button class="btn auth-form__controls--back">TRỞ LẠI</button>
+                        <button class="btn btn--primary">ĐĂNG NHẬP</button>
+                    </div>
+                </div>
+
+                <div class="auth-form__socials">
+                    <a href="" class="auth-form__socials-icon--facebook btn btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">
+                            Đăng nhập với Facebook
+                        </span>
+                    </a>
+                    <a href="" class="auth-form__socials-icon--google btn btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">
+                            Đăng nhập với Google
+                        </span>
+
+                    </a>
+                </div>
+            </div>
+        </div> -->
+        <!-- </div> -->
+
+</body>
+</html>
+
+
+
+

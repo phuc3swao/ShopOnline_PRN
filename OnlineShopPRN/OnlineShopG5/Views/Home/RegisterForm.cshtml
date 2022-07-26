@@ -1,0 +1,237 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using OnlineShopG5.Models;
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="~/css/base.css">
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/grid.css">
+    <link href="/font/fontawesome-free-5.15.4-web/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="main">
+        <header class="login-header">
+            <div class="login-header-left">
+
+                <h3 class="login-header-title">Đăng Ký</h3>
+            </div>
+            <div class="login-header-right">
+                <a href="" class="header-help">
+                    Cần trợ giúp?
+                </a>
+            </div>
+        </header>
+
+        <div class="app__container-login">
+            <div class="header__logo">
+                <a href="#">
+                    <img src="./assets/img/logo.png" alt="" class="header__logo-img-login">
+                </a>
+            </div>
+            <!-- Register form  -->
+            @*<div class="auth-form ">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng ký</h3>
+                        <span class="auth-form__switch-btn">Đăng Nhập</span>
+
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+                        </div>
+                    </div>
+
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            Bằng việc đăng kí, bạn đã đồng ý với Rin-Shop về
+                            <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                            <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
+
+                        </p>
+                    </div>
+
+                    <div class="auth-form__controls">
+                        <button class="btn auth-form__controls--back">TRỞ LẠI</button>
+                        <button class="btn btn--primary">ĐĂNG KÝ</button>
+                    </div>
+                </div>*@
+            <!-- Login form -->
+            <div class="auth-form">
+                <form action="/Home/Register" method="post">
+                    <div class="auth-form__container">
+                        <div class="auth-form__header">
+                            <h3 class="auth-form__heading">Đăng ký</h3>
+                            <span class="auth-form__switch-btn">Đăng nhập</span>
+
+                        </div>
+                        <div class="auth-form__form">
+                            <div class="auth-form__group">
+                                <input type="text" name="username" class="auth-form__input" placeholder="Tên đăng nhập">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="password" name="password" class="auth-form__input" placeholder="Mật khẩu">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="text" name="fname" class="auth-form__input" placeholder="Họ">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="text" name="lname" class="auth-form__input" placeholder="Tên">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="text" name="phone" class="auth-form__input" placeholder="Số điện thoại">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="text" name="address" class="auth-form__input" placeholder="Địa chỉ">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="text" name="gmail" class="auth-form__input" placeholder="Gmail">
+                            </div>
+                        </div>
+
+                        <div class="auth-form__aside">
+                            <div class="auth-form__help">
+                                
+                                <span class="auth-form__help-separate"></span>
+                                <a href="" class="auth-form__help-link">
+                                    Cần trợ giúp?
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__controls">
+                            <button class="btn auth-form__controls--back">TRỞ LẠI</button>
+                            <button type="submit" class="btn btn--primary">ĐĂNG KÝ</button>
+                        </div>
+                    </div>
+                </form>
+
+
+                <div class="auth-form__socials">
+                    <a href="" class="auth-form__socials-icon--facebook btn btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">
+                            Đăng nhập với Facebook
+                        </span>
+                    </a>
+                    <a href="" class="auth-form__socials-icon--google btn btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">
+                            Đăng nhập với Google
+                        </span>
+
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__column-2-4">
+                        <h3 class="footer__heading">Chăm sóc khách hàng</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Trung tâm trợ giúp</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Rin-Shop Mall</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Hướng dẫn mua hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <h3 class="footer__heading">Giới thiệu</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Giới thiệu</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Tuyển dụng</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Điều khoản</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <h3 class="footer__heading">Danh mục</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Sản phẩm</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Ưu đãi giảm giá</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Giảm giá</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <h3 class="footer__heading">Theo dõi</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-facebook"></i>
+                                    Facebook
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-instagram-square"></i>
+                                    Instagram
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-linkedin"></i>
+                                    Linked
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
+                        <div class="footer__download">
+                            <img src="/assets/img/QR_Code.png" alt="Download QR" class="footer__download-qr">
+                            <div class="footer__download-apps">
+                                <a href="" class="footer__download-app-link">
+
+                                    <img src="/assets/img/gg.png" alt="App Store" class="footer__download-app-img">
+                                </a>
+                                <a href="" class="footer__download-app-link">
+
+
+                                    <img src="/assets/img/gg2.png" alt="Google Play" class="footer__download-app-img">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
